@@ -1,4 +1,26 @@
-/* You'll probably want to add some styles here */
+/* Importing fonts from Google. */
+@import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono");
+
+/* Map. */
 #container {
-	height:800px;
+	height: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Body. */
+p {
+	font-family: "Ubuntu Mono", monospace;
+}
+
+/* Headline. */
+h1 {
+	background-color: #000000;
+	color: #FFFFFF;
+	font-family: "Share Tech Mono", monospace;
+	font-size: 5em;
+	margin: 0px;
+	text-align: center;
+	width: 100%;
 }

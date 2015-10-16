@@ -1,31 +1,29 @@
-// Function to draw your map
+// drawMap draws the map, then calls getData.
 var drawMap = function() {
-
-  // Create map and set view
- 
-
-  // Create a tile layer variable using the appropriate url
-
-
-  // Add the layer to your map
- 
-
-  // Execute your function to get data
- 
+	alert("drawMap executed.");
+	var map = L.map("container").setView([30, -100], 4);
+	var layer = L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png");
+	layer.addTo(map);
+	getData();
 }
 
-// Function for getting data
+// getData gets the data with which to populate the map, using an AJAX request.
 var getData = function() {
-
-  // Execute an AJAX request to get the data in data/response.js
-
-
-  // When your request is successful, call your customBuild function
-
+	alert("getData executed.");
+	$.ajax({
+		url: "data/response.json",
+		/* If successful, send data to customBuild. */
+		success: function(data) {
+			customBuild(data);
+		},
+		dataType: "json"
+	});
+	customBuild();
 }
 
 // Loop through your data and add the appropriate layers and points
-var customBuild = function() {
+var customBuild = function(data) {
+	alert("customBuild executed.");
 	// Be sure to add each layer to the map
 
 	// Once layers are on the map, add a leaflet controller that shows/hides layers
