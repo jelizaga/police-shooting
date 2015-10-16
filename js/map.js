@@ -1,12 +1,11 @@
 // drawMap draws the map, then calls getData.
 var drawMap = function() {
-	alert("drawMap executed.");
 	/* The mapbox plugin makes this a bit messy. I included my accessToken and set the tileLayer to a 
 	custom map I made in their "Mapbox Studio" application. */
 	L.mapbox.accessToken = "pk.eyJ1IjoiamVsaXphZ2EiLCJhIjoiY2lmdTJvMzMxMWl2MHRnbHlzOXUzdjE1biJ9.IT8SuuUQ8B9OwJWOIu4qhQ";
 	var layer = L.tileLayer("http://{s}.tiles.mapbox.com/v4/jelizaga.c693687d/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamVsaXphZ2EiLCJhIjoiY2lmdTJvMzMxMWl2MHRnbHlzOXUzdjE1biJ9.IT8SuuUQ8B9OwJWOIu4qhQ");
 	var map = L.map("container", {
-		center: [40, -90],
+		center: [40, -100],
 		zoom: 4
 	});
 	/* 
@@ -21,7 +20,6 @@ var drawMap = function() {
 
 // getData gets the data with which to populate the map, using an AJAX request.
 var getData = function() {
-	alert("getData executed.");
 	$.ajax({
 		url: "data/response.json",
 		/* If successful, send data to customBuild. */
@@ -30,12 +28,12 @@ var getData = function() {
 		},
 		dataType: "json"
 	});
-	customBuild();
 }
 
 // Loop through your data and add the appropriate layers and points
 var customBuild = function(data) {
-	alert("customBuild executed.");
+	alert("customBuild initiated.");
+
 	// Be sure to add each layer to the map
 
 	// Once layers are on the map, add a leaflet controller that shows/hides layers

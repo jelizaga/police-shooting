@@ -2,15 +2,10 @@
 @import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono");
 @import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono");
 
-/* Map. */
-#container {
-	height: 800px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 /* Body. */
-p {
+body {
+	background-color: #101010;
+	color: #FFFFFF;
 	font-family: "Ubuntu Mono", monospace;
 }
 
@@ -23,4 +18,22 @@ h1 {
 	margin: 0px;
 	text-align: center;
 	width: 100%;
+}
+
+/* Map. */
+#container
+ {
+	height: 800px;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Map info. */
+#infobar {
+	width: 800px;
+}
+
+.mapinfo {
+	background-color: #000000;
 }
