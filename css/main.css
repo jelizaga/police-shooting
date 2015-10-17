@@ -25,19 +25,22 @@ h2 {
 }
 
 /* Headline. */
+#headline {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 80px;
+	width: 800px;
+}
+
 h1 {
 	color: #FFFFFF;
 	font-family: "Share Tech Mono", monospace;
 	font-size: 5em;
-	margin: 0px;
-	padding: 1em;
 	text-align: center;
-	width: 100%;
 }
 
 /* Map. */
-#container
- {
+#container {
  	border-color: #FFFFFF;
  	border-style: solid;
  	border-radius: 20px;
