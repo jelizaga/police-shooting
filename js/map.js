@@ -98,13 +98,6 @@ var customBuild = function(data) {
 	$("#armedUnknownTotal").text(armedUnknown);
 	$("#unarmedUnknownTotal").text(unarmedUnknown);
 
-
-	alert("Armed males: " + armedMale);
-	alert("Unarmed males: " + unarmedMale);
-	alert("Armed females: " + armedFemale);
-	alert("Unarmed females: " + unarmedFemale);
-	alert("Unknown: " + armedUnknown + " " + unarmedUnknown);
-
 }
 
 
