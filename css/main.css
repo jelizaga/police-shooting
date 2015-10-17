@@ -1,12 +1,17 @@
 /* Importing fonts from Google. */
 @import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono");
-@import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono:700,400");
 
 /* Body. */
 body {
 	background-color: #101010;
 	color: #FFFFFF;
 	font-family: "Ubuntu Mono", monospace;
+	font-weight: 400;
+}
+
+h2 {
+	font-weight: 700;
 }
 
 /* Headline. */
@@ -16,6 +21,7 @@ h1 {
 	font-family: "Share Tech Mono", monospace;
 	font-size: 5em;
 	margin: 0px;
+	padding: 1em;
 	text-align: center;
 	width: 100%;
 }
@@ -30,10 +36,15 @@ h1 {
 }
 
 /* Map info. */
-#infobar {
+#mapinfobar {
 	width: 800px;
 }
 
 .mapinfo {
 	background-color: #000000;
+}
+
+/* Statistic table. */
+.tblHeading {
+	font-weight: 700;
 }
