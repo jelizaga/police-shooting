@@ -15,7 +15,7 @@ var drawMap = function() {
 	L.mapbox.accessToken = "pk.eyJ1IjoiamVsaXphZ2EiLCJhIjoiY2lmdTJvMzMxMWl2MHRnbHlzOXUzdjE1biJ9.IT8SuuUQ8B9OwJWOIu4qhQ";
 	var layer = L.tileLayer("http://{s}.tiles.mapbox.com/v4/jelizaga.c693687d/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamVsaXphZ2EiLCJhIjoiY2lmdTJvMzMxMWl2MHRnbHlzOXUzdjE1biJ9.IT8SuuUQ8B9OwJWOIu4qhQ");
 	var map = L.map("container", {
-		center: [40, -100],
+		center: [40, -90],
 		zoom: 4
 	});
 	
@@ -35,7 +35,7 @@ var drawMap = function() {
 var getData = function() {
 	var data;
 	$.ajax({
-		url: "../data/response.json",
+		url: "data/response.json",
 		type: "get",
 		success: function(dat) {
 			data = dat;
@@ -48,7 +48,7 @@ var getData = function() {
 // Loops through all the victims and updates the map according to their respective data and
 // location.
 var customBuild = function(data) {
-	for (var victim = 0; victim < data.length; victim++) { 
+	for (var victim = 0; victim < data.length; victim++) {
 
 		// Determines the location of the shooting.
 		var lat = data[victim]["lat"];

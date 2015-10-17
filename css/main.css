@@ -38,9 +38,10 @@ h1 {
 /* Map. */
 #container
  {
- 	border-radius: 20px;
  	border-color: #FFFFFF;
- 	border-
+ 	border-style: solid;
+ 	border-radius: 20px;
+ 	border-width: 2px;
 	height: 800px;
 	width: 800px;
 	margin-left: auto;
