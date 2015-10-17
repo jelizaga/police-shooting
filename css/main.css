@@ -3,8 +3,18 @@
 @import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono:700,400");
 
 /* Body. */
+a {
+	color: #777777;
+}
+
+a:hover {
+	color: #444444;
+	text-decoration: none;
+}
+
+
 body {
-	background-color: #101010;
+	background-color: #000000;
 	color: #FFFFFF;
 	font-family: "Ubuntu Mono", monospace;
 	font-weight: 400;
@@ -16,7 +26,6 @@ h2 {
 
 /* Headline. */
 h1 {
-	background-color: #000000;
 	color: #FFFFFF;
 	font-family: "Share Tech Mono", monospace;
 	font-size: 5em;
@@ -29,6 +38,9 @@ h1 {
 /* Map. */
 #container
  {
+ 	border-radius: 20px;
+ 	border-color: #FFFFFF;
+ 	border-
 	height: 800px;
 	width: 800px;
 	margin-left: auto;
@@ -36,15 +48,19 @@ h1 {
 }
 
 /* Map info. */
-#mapinfobar {
+#infoBar {
+	background-color: #000000;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1em;
 	width: 800px;
 }
 
-.mapinfo {
-	background-color: #000000;
+td {
+	text-align: center;
+	padding: 1em;
 }
 
-/* Statistic table. */
 .tblHeading {
 	font-weight: 700;
 }

@@ -45,69 +45,64 @@
 	    	</div>
 	    </div>
 
-	    <div id="mapinfobar">
-		    <div class="container">
-		    	<div class="row">
-		    		<div class="col-md-6 mapinfo">
+		<div id="infoBar">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6 mapinfo">
 			    		<h2>
-			    			Test.
+			    			Police Shootings
 			    		</h2>
 			    		<p>
-			    			Testorama.
+			    			This data is crowd-sourced and sourced from <a href="http://regressing.deadspin.com/deadspin-police-shooting-database-update-were-still-go-1627414202">Deadspin</a>.
+			    			It includes some 1,500+ incidents ranging from 2011 to August
+			    			2014.
 			    		</p>
 			    	</div>
-			    	<div class="col-md-6 mapinfo">
-			    		<h2>
-			    			Testing.
-			    		</h2>
-			    		<p>
-			    			Testestestest.
-			    		</p>
-			    	</div>
-		    	</div>
-		    </div>
-		</div>
-
-		<div>
-			<table id="statisticTable">
-				<tr>
-					<td>
-					</td>
-					<td class="tblHeading">
-						Armed
-					</td>
-					<td class="tblHeading">
-						Unarmed
-					</td>
-				</tr>
-				<tr>
-					<td class="tblHeading">
-						Male
-					</td>
-					<td id="armedMaleCnt">
-					</td>
-					<td id="UnarmedMaleCnt">
-					</td>
-				</tr>
-				<tr>
-					<td class="tblHeading">
-						Female
-					</td>
-					<td id="armedFemaleCnt">
-					</td>
-					<td id="unarmedFemaleCnt">
-					</td>
-				</tr>
-				<tr>
-					<td class="tblHeading">
-						Unknown
-					</td>
-					<td id="armedUnknownCnt">
-					</td>
-					<td id="unarmedUnknownCnt">
-					</td>
-				</tr>
-			</table>
+					<div class="col-md-6">
+						<!-- The statisticTable is filled upon successful AJAX request of
+						response.json. -->
+						<table id="statisticTable">
+							<tr>
+								<td>
+								</td>
+								<td class="tblHeading">
+									Armed
+								</td>
+								<td class="tblHeading">
+									Unarmed
+								</td>
+							</tr>
+							<tr>
+								<td class="tblHeading">
+									Male
+								</td>
+								<td id="armedMaleTotal">
+								</td>
+								<td id="unarmedMaleTotal">
+								</td>
+							</tr>
+							<tr>
+								<td class="tblHeading">
+									Female
+								</td>
+								<td id="armedFemaleTotal">
+								</td>
+								<td id="unarmedFemaleTotal">
+								</td>
+							</tr>
+							<tr>
+								<td class="tblHeading">
+									Unknown
+								</td>
+								<td id="armedUnknownTotal">
+								</td>
+								<td id="unarmedUnknownTotal">
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
 		</div>
 
 	    <!-- Calls drawMap() in map.js. -->

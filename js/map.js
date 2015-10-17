@@ -6,6 +6,8 @@ var unarmedFemale = 0;
 var armedUnknown = 0;
 var unarmedUnknown = 0;
 
+
+
 // drawMap draws the map, then calls getData.
 var drawMap = function() {
 	// The mapbox plugin makes this a bit messy. I included my accessToken and set the tileLayer to a 
@@ -87,6 +89,15 @@ var customBuild = function(data) {
 		});
 
 	}
+
+	// Updating statistics of the table.
+	$("#armedMaleTotal").text(armedMale);
+	$("#unarmedMaleTotal").text(unarmedMale);
+	$("#armedFemaleTotal").text(armedFemale);
+	$("#unarmedFemaleTotal").text(unarmedFemale);
+	$("#armedUnknownTotal").text(armedUnknown);
+	$("#unarmedUnknownTotal").text(unarmedUnknown);
+
 
 	alert("Armed males: " + armedMale);
 	alert("Unarmed males: " + unarmedMale);
