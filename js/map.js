@@ -6,15 +6,16 @@ var unarmedFemale = 0;
 var armedUnknown = 0;
 var unarmedUnknown = 0;
 
-
+var map;
+var genderLayer = new L.LayerGroup([]);
 
 // drawMap draws the map, then calls getData.
 var drawMap = function() {
 	// The mapbox plugin makes this a bit messy. I included my accessToken and set the tileLayer to a 
 	// custom map I made in their "Mapbox Studio" application.
 	L.mapbox.accessToken = "pk.eyJ1IjoiamVsaXphZ2EiLCJhIjoiY2lmdTJvMzMxMWl2MHRnbHlzOXUzdjE1biJ9.IT8SuuUQ8B9OwJWOIu4qhQ";
-	var layer = L.tileLayer("http://{s}.tiles.mapbox.com/v4/jelizaga.c693687d/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamVsaXphZ2EiLCJhIjoiY2lmdTJvMzMxMWl2MHRnbHlzOXUzdjE1biJ9.IT8SuuUQ8B9OwJWOIu4qhQ");
-	var map = L.map("container", {
+	var tilesLayer = L.tileLayer("http://{s}.tiles.mapbox.com/v4/jelizaga.c693687d/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamVsaXphZ2EiLCJhIjoiY2lmdTJvMzMxMWl2MHRnbHlzOXUzdjE1biJ9.IT8SuuUQ8B9OwJWOIu4qhQ");
+	map = L.map("container", {
 		center: [40, -90],
 		zoom: 4
 	});
@@ -26,7 +27,7 @@ var drawMap = function() {
 	layer.addTo(map);
 	*/
 
-	layer.addTo(map);
+	tilesLayer.addTo(map);
 	getData();
 }
 
@@ -66,8 +67,17 @@ var customBuild = function(data) {
 			victimGender = "Unknown";
 		}
 
+		// Determines victimRace.
+		var victimRace = data[victim]["Victim's Race"];
+		if (victimRace == "undefined") {
+			victimRace = "Unknown";
+		}
+
 		// Determines summary and source.
 		var victimSummary = data[victim]["Summary"];
+		if (victimSummary == "undefined") {
+			victimSummary = "Unknown.";
+		}
 		var victimSource = data[victim]["Source Link"];
 
 		// Updates statistics.
@@ -91,13 +101,27 @@ var customBuild = function(data) {
 			}
 		}
 
-		// Inserts circle at incident site.
-		var circle = new L.circle(lat, lng, 30100, {
-			color: (victimGender == "Male") ? "#409EFF" : "#FF85FE",
-			opacity: 0.25,
-		});
+		// Information to be included in infoPopup.
+		var info = "<h3>" + victimName + "</h3>" + "<p>Gender: " + victimGender + "</p><p>Race: " 
+			+ victimRace + "<p>Summary: " + victimSummary + "</p><p>Source: " + "<a href='" + 
+			victimSource + "'>" + victimSource + "</a></p>";
 
+		// Popup at incident site.
+		var infoPopup = new L.popup({
+			maxHeight: 200
+		}).setLatLng(lat, lng).setContent(info);
+
+		// Inserts circle at incident site bound to popup.
+		var circle = new L.circle([lat, lng], 10, {
+			color: (victimGender == "Male") ? "#409EFF" : "#FF85FE",
+			fillColor: (victimGender == "Male") ? "#409EFF" : "FF85FE",
+			fillOpacity: 0.25,
+		}).addTo(genderLayer).bindPopup(infoPopup);
 	}
+
+	// Displaying layers.
+	genderLayer.addTo(map);
+
 
 	// Updating statistics of the table.
 	$("#armedMaleTotal").text(armedMale);
