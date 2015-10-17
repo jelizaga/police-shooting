@@ -54,27 +54,37 @@ var customBuild = function(data) {
 		var lat = data[victim]["lat"];
 		var lng = data[victim]["lng"];
 
+		// Determines victimName.
+		var victimName = data[victim]["Victim Name"];
+		if (victimName == "undefined") {
+			victimName = "Unknown";
+		}
+
 		// Determines victimGender.
 		var victimGender = data[victim]["Victim's Gender"];
 		if (victimGender != "Male" && victimGender != "Female") {
 			victimGender = "Unknown";
 		}
 
+		// Determines summary and source.
+		var victimSummary = data[victim]["Summary"];
+		var victimSource = data[victim]["Source Link"];
+
 		// Updates statistics.
-		if (victimGender === "Male") {
-			if (data[victim]["Armed or Unarmed?"] === "Armed") {
+		if (victimGender == "Male") {
+			if (data[victim]["Armed or Unarmed?"] == "Armed") {
 				armedMale++;
 			} else {
 				unarmedMale++;
 			}
-		} else if (victimGender === "Female") {
-			if (data[victim]["Armed or Unarmed?"] === "Armed") {
+		} else if (victimGender == "Female") {
+			if (data[victim]["Armed or Unarmed?"] == "Armed") {
 				armedFemale++;
 			} else {
 				unarmedFemale++;
 			}
 		} else {
-			if (data[victim]["Armed or Unarmed?"] === "Armed") {
+			if (data[victim]["Armed or Unarmed?"] == "Armed") {
 				armedUnknown++;
 			} else {
 				unarmedUnknown++;
@@ -82,10 +92,9 @@ var customBuild = function(data) {
 		}
 
 		// Inserts circle at incident site.
-		var circle = L.circle(lat, lng, 30100, {
+		var circle = new L.circle(lat, lng, 30100, {
 			color: (victimGender == "Male") ? "#409EFF" : "#FF85FE",
 			opacity: 0.25,
-			weight: 0
 		});
 
 	}
