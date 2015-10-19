@@ -22,6 +22,7 @@ body {
 
 h2 {
 	font-weight: 700;
+	text-align: center;
 }
 
 /* Headline. */
@@ -40,7 +41,7 @@ h1 {
 }
 
 /* Map. */
-#container {
+#map {
  	border-color: #FFFFFF;
  	border-style: solid;
  	border-width: 2px;
@@ -71,4 +72,58 @@ td {
 
 .tblHeading {
 	font-weight: 700;
+}
+
+.rip {
+	color: #FF7777;
+	display: block;
+	font-size: 80px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	vertical-align: auto;
+}
+
+#colList {
+	list-style-type: none;
+	padding-left: 0;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/* Various color codings. */
+.malcol {
+	color: #409EFF;
+}
+
+.femcol {
+	color: #FF85FE;
+}
+
+.wcol {
+	color: #9BFBFF
+}
+
+.blcol {
+	color: #FFF99B;
+}
+
+.hiscol {
+	color: #A7FF9B;
+}
+
+.ascol {
+	color: #FF8D8D;
+}
+
+.natcol {
+	color: #FB9BFF;
+}
+
+.paccol {
+	color: #FFC19B;
+}
+
+.uncol {
+	color: #F3F3F3;
 }

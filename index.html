@@ -41,7 +41,7 @@
 		    </h1>
 		</div>
 
-	    <div id="container">	
+	    <div id="map">	
 	    </div>
 
 		<div id="infoBar">
@@ -54,17 +54,27 @@
 			    		<p>
 			    			This data is crowd-sourced by <a href="http://regressing.deadspin.com/deadspin-police-shooting-database-update-were-still-go-1627414202">Deadspin</a>,
 			    			so the data may not be consistent or entirely mistake-free.
-			    			It includes some 1,500+ police shooting incidents ranging from
+			    			It includes some 2,000+ police shooting incidents ranging from
 			    			2011 to August 2014.
 			    		</p>
 			    		<p>
 			    			Toggle the various different overlays with the button in the top
-			    			right corner.
+			    			right corner. Gender and ethnicity are color-coded.
 			    		</p>
 			    	</div>
-					<div class="col-md-6">
-						<!-- The statisticTable is filled upon successful AJAX request of
-						response.json. -->
+					<div class="col-md-6 mapinfo">
+						<h2>
+							Total Shot
+						</h2>
+						<text id="totalVictims" class="rip">
+						</text>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 mapinfo">
+						<h2>
+							Gender Statistics
+						</h2>
 						<table id="statisticTable">
 							<tr>
 								<td>
@@ -75,23 +85,30 @@
 								<td class="tblHeading">
 									Unarmed
 								</td>
+								<td class="tblHeading">
+									Unknown
+								</td>
 							</tr>
 							<tr>
-								<td class="tblHeading">
+								<td class="tblHeading malcol">
 									Male
 								</td>
 								<td id="armedMaleTotal">
 								</td>
 								<td id="unarmedMaleTotal">
 								</td>
+								<td id="unknownMaleTotal">
+								</td>
 							</tr>
 							<tr>
-								<td class="tblHeading">
+								<td class="tblHeading femcol">
 									Female
 								</td>
 								<td id="armedFemaleTotal">
 								</td>
 								<td id="unarmedFemaleTotal">
+								</td>
+								<td id="unknownFemaleTotal">
 								</td>
 							</tr>
 							<tr>
@@ -101,6 +118,107 @@
 								<td id="armedUnknownTotal">
 								</td>
 								<td id="unarmedUnknownTotal">
+								</td>
+								<td id="unknownUnknownTotal">
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-md-6 mapinfo">
+						<h2>
+							Color Key
+						</h2>
+						<ul id="colList">
+							<li class="malcol">
+								male
+							</li>
+							<li class="femcol">
+								female
+							</li>
+							<li class="wcol">
+								white
+							</li>
+							<li class="blcol">
+								black
+							</li>
+							<li class="hiscol">
+								hispanic &amp; latino
+							</li>
+							<li class="ascol">
+								asian
+							</li>
+							<li class="natcol">
+								native american
+							</li>
+							<li class="paccol">
+								hawaiian &amp; other
+							</li>
+							<li class="uncol">
+								unknown
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<h2>
+							Total Killed
+						</h2>
+						<text id="totalKilled" class="rip">
+						</text>
+					</div>
+					<div class="col-md-6">
+						<h2 id="raceStats">
+							Race Statistics
+						</h2>
+						<table id="statisticTable">
+							<tr>
+								<td class="tblHeading wcol">
+									White
+								</td>
+								<td id="whiteShot">
+								</td>
+							</tr>
+							<tr>
+								<td class="tblHeading blcol">
+									Black
+								</td>
+								<td id="blackShot">
+								</td>
+							</tr>
+							<tr>
+								<td class="tblHeading hiscol">
+									Hispanic &amp; Latino
+								</td>
+								<td id="hisplatShot">
+								</td>
+							</tr>
+							<tr>
+								<td class="tblHeading ascol">
+									Asian
+								</td>
+								<td id="asianShot">
+								</td>
+							</tr>
+							<tr>
+								<td class="tblHeading natcol">
+									Native American
+								</td>
+								<td id="natamerShot">
+								</td>
+							</tr>
+							<tr>
+								<td class="tblHeading paccol">
+									Hawaiian &amp; Other
+								</td>
+								<td id="pacificShot">
+								</td>
+							</tr>
+							<tr>
+								<td class="tblHeading uncol">
+									Unknown
+								</td>
+								<td id="unknownShot">
 								</td>
 							</tr>
 						</table>
